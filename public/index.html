@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title>second trial</title>
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../css/app.css">
+    </head>
+    <body>
+
+
+
+<section id="wrapper">
+    <div id="sidebar">
+        <h3>Staff Search</h3>
+        <div id="searchform">
+        
+    Search by: <select id="searchId">
+    <option>id</option>
+    <option>name</option>
+    <option>email</option>
+    <option>account</option>
+    <option>level</option>
+    <option>qualify</option>
+    <option>salary</option>
+    <option>paid</option>
+    </select><input id="searchinput" type="text"/>
+    
+    <button id="searchbutton">GO</button>
+    
+    
+    </div>
+    </div> <!-- sidebar --> 
+            <div id="addStaff">
+                    <!--this is used to add staff-->
+                    <form id="addForm"> 
+                        <label for="surname" class="labels">Surname: </label><input type="text" id="surname"/> 
+                        <label for="otherName" class="labels">Other Names: </label><input type="text" id="otherName"/>
+                        <label for="email" class="labels">Email: </label><input type="email" id="email"/><br/>
+                        <label for="acctNum" class="labels">Account Number: </label><input type="text" id="acctNum" />
+                        <select id="acctbank">
+                            <option>Access Bank</option>
+                            <option>Diamond Bank</option>
+                            <option>First Bank</option>
+                            <option>Guaranty Trust Bank</option>
+                            <option>Union Bank</option>
+                            <option>UBA</option>
+                            <option>Wema Bank</option>
+                            <option>FCMB</option>
+                            <option>Stanbic IBTC</option>
+                            <option>Polaris Bank</option>
+                            <option>Zenith Bank</option>
+                        </select>
+                        <select id="accttype">
+                                <option>Current</option>
+                                <option>Savings</option>
+                        </select>
+                        <label for="level">Level: </label>
+                        <select id="level">
+                                <option value="General Manager">General Manager</option>
+                                <option value="Managing Director">Managing Director</option>
+                                <option value="Supervisor">Supervisor</option>
+                        </select>
+                        <select id="qualification">
+                                <option>MSc.</option>
+                                <option>BSc.</option>
+                        </select>
+                    
+                        <button id="addBut">Add Staff</button><span>     </span><span id="updatestaff">
+                        <button id="addBut">Update Staff</button><label for="updateId">by ID</label><input id="updateId" type="text"/></span>
+                        <button id="showUpdate">Update</button>
+
+                
+                    </form>
+            
+            
+            </div>
+
+
+
+
+</section> <!--wrapper div-->
+        <form id="addUser">
+                <h5>ADD USER</h5>
+                <input type="email" value="email" id="newUserEmail" required><br /><br />
+                <input type="password" value="password" id="newUserPwd"/><br /><span id="shortPwdErr">too short</span><br />
+                <input type="password" value="password" id="confNewUserPassword"/><br /><span id="unmtPwdErr">unmatched password</span><br />
+                <button type="submit" id="addNewUser">ADD</button>
+        </form>
+<div id="mainfeature">
+        
+    
+        <div id="content">
+            
+
+            <table id='paytable'>
+                <thead >
+                    <col width="40px" />
+                    <col width="240px" />
+                    <col width="240px" />
+                    <col width="140px" />
+                    <col width="140px" />
+                    <col width="140px" />
+                    <col width="80px" />
+                    <col width="80px" />
+                    <col width="40px" />
+
+                    <tr id="thead"><th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>ACCOUNT</th>
+                    <th>LEVEL</th>
+                    <th>QUALIFICATION</th>
+                    <th>SALARY</th>
+                    <th>PAYMENT STATUS</th>
+                    <th></th></tr>
+                </thead>
+                <tbody id="employee">
+                    
+                </tbody>
+        
+            </table>
+
+        </div> <!-- content -->
+
+
+
+
+
+
+    
+</div>
+        
+        <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+        <script type="text/javascript" src="js/payroll.js" ></script> 
+    
+    </div>
+    </body>
+</html>

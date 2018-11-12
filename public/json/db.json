@@ -1,0 +1,20 @@
+{
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "typicode" }, { "id": 2, "title": "json-people", "author": "greenlad" }
+    ],
+
+    "employees": [
+      {"id": 1, "name": "David King", "email": "dboss@ahacyber.com", "account": "68596786", "level": "Managing Director", "paid": "yes"}
+    ],
+
+    "users":[
+      {"id": 1, "username": "moses", "password": "8564"}
+    ],
+
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+
+    "profile": { "name": "typicode" },
+    
+}
