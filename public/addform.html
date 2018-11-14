@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+
+	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="public/css/app.css">
+</head>
+<body>
+
+
+    <div id="addStaff">
+        <div id="addForm"> 
+             <div id="addFormCont">
+                     
+                         <input type="text" id="surname" class="form-control" placeholder="First name"><br/><br/>
+                
+                  
+                         <input type="text" id="otherName" class="form-control" placeholder="Last name">
+                 
+                    
+               
+                    
+
+
+                     
+
+             <br/>
+             <label for="email" class="labels">Email: </label><input type="email" id="email" class="form-control"/><br/>
+             <label for="acctNum" class="labels">Account Number: </label><input type="text" id="acctNum" class="form-control"/><br/>
+
+             <select id="acctbank" class="select-cont custom-select mr-sm-2">
+                 <option>Access Bank</option>
+                 <option>Diamond Bank</option>
+                 <option>First Bank</option>
+                 <option>Guaranty Trust Bank</option>
+                 <option>Union Bank</option>
+                 <option>UBA</option>
+                 <option>Wema Bank</option>
+                 <option>FCMB</option>
+                 <option>Stanbic IBTC</option>
+                 <option>Polaris Bank</option>
+                 <option>Zenith Bank</option>
+             </select>
+             <select id="accttype" class="select-cont custom-select mr-sm-2">
+                     <option>Current</option>
+                     <option>Savings</option>
+             </select><br/>
+             <label for="level">Level: </label><br/>
+             <select id="level" class="select-cont custom-select mr-sm-2">
+                     <option value="General Manager">General Manager</option>
+                     <option value="Managing Director">Managing Director</option>
+                     <option value="Supervisor">Supervisor</option>
+             </select>
+             <select id="qualification" class="select-cont custom-select mr-sm-2">
+                     <option>MSc.</option>
+                     <option>BSc.</option>
+             </select><br/><br/>
+         
+             <button id="addBut">Add Staff</button><br/><br/><span id="updatestaff">
+             <button id="updateBut">Update Staff</button><label for="updateId">   by ID:     </label><input id="updateId" type="number"/></span>
+             
+         </div>
+
+     
+         </div>
+ <button data-toggle="modal" data-target="#exampleModa"></button>
+ 
+ 
+ </div>
+ <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+ <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+ <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script> -->
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> -->
+ <script type="text/javascript" src="js/payroll.js" ></script> 
+ <script type="text/javascript" src="js/modal.js" ></script> 
+</body>
+</html>

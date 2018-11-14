@@ -1,10 +1,13 @@
 #content{
 	text-align: center;
 	padding-top: 0%;
+	width: 100%;
 }
 #addForm {
-	min-width: 800px;
-	width: 800px;
+	min-width: 120px;
+	color: black;
+	align-content: center
+	
 
 }
 body{
@@ -75,11 +78,19 @@ body{
 	box-sizing: border-box;
 
 }
+#addStaffs {
+	margin: auto;
+	padding-bottom: 0%;
+	width: 300px;
+	padding-top: 50px;
+}
 #addStaff {
 	margin-bottom: 0pt;
 	padding-bottom: 0%;
-	min-width: 800px;
-	max-width: 800px;
+	width: 200px;
+	min-width: 120px;
+	padding-top: 90px;
+	margin: 5;
 }
 #searchbutton {
 	border-radius: 15px;
@@ -106,8 +117,11 @@ body{
 	background-repeat: no-repeat;
 	background-color: #112236;
 	color: white;
-	padding: 2em 2em 1em 200px;
-	padding-top: 120px;
+	padding-top: 50px;
+	float: left;
+	max-width: 920;
+    min-width: auto;
+    width: 64%;
 }
 #sidebar  {
 	float: right;
@@ -121,31 +135,128 @@ body {
 	color: #3b3b3b;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-	background: #2b2b2b;
+	background: white;
 }
 .rows:nth-of-type(odd) {
 	background: #e9e9e9;
 }
 .rows:nth-of-type(even) {
-	background: aquamarine;
+	background: rgb(140, 140, 243);
 }
 
 #thead {
-	background: #ea6153;
+	background: rgb(52, 36, 139);
 	color: #e9e9e9;
 	align: right;
 }
 #employee {
 	color: #112236;
+	font-size: .8em;
 }
 table#paytable {
-	table-layout: fixed;
+	width: 100%;
 }
-table#paytable th { overflow: hidden;}
+table#paytable th { overflow: visible;}
 #addUser {
-	align: center;
-	width: 80px;
-	padding-top: 120px;
-	float: left;
+	margin: auto;
+	width: 180px;
 	color: white;
+	margin-left: 5;
+}
+#deleteId, #payId{
+	width: 50px;
+}
+#sidePanel{
+	padding-top: 50px;
+
+}
+#searchinput {
+	width: 80px;
+}
+#navi {
+	position: fixed;
+	width: 100%;
+	max-height: 50px;
+}
+#addstafflink {
+	display: none;
+}
+
+#acctbank, #accttype, #level, #qualification {
+	width: 80px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#addFormCont {
+	color: black;
+}
+#updateId {
+	width: 50px;
+}
+.select-cont {
+	width: 40px;
+
+}
+.spaces {
+	padding-bottom: 10;
+}
+#maincont {
+	width: 100%;
+}
+#welcome {
+	
+}
+
+
+/* media query */
+
+@media screen and (max-width: 1100px) {
+	body {
+		font-size: inherit;
+	}
+	#addUser {
+		align: center;
+		width: 100%;
+		padding-top: 50px;
+		margin: 5px;
+		float: left;
+		color: white;
+	}
+	#mainfeature {
+    	background-repeat: no-repeat;
+		color: white;
+		padding: 0;
+    	padding-top: 0;
+		float: none;
+		width: 100%;
+		max-width: 1200px;
+	}
+	#paytable {
+		margin-left: 5;
+		margin-right: 5;
+		padding: 5%;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	#addStaff {
+		display: none;
+	}
+	#addstafflink {
+		float: right;
+		margin-right: 5;
+		display: inline;
+	}
+	#addStaffs {
+		margin: auto;
+		padding-bottom: 0%;
+		transform: scale(2);
+	}
+	#addForm {
+		min-width: 120px;
+		width: 200px;
+		float: none;
+		margin: auto;
+	}
+
+
 }

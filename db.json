@@ -18,184 +18,30 @@
   ],
   "employees": [
     {
-      "id": 1,
-      "name": "David King",
-      "email": "dboss@ahacyber.com",
-      "account": "68596786",
-      "level": "Managing Director",
-      "qualif": "Manager",
-      "salary": "$7000",
-      "paid": "yes"
-    },
-    {
-      "id": 2,
-      "name": "David King",
-      "email": "dboss@ahacyber.com",
-      "account": "68596786",
-      "level": "Managing Director",
-      "qualif": "Manager",
-      "salary": "$7000",
-      "paid": "yes"
-    },
-    {
-      "name": "Lawal ",
-      "email": "",
-      "account": "",
+      "id": 3,
+      "surname": "Lawal",
+      "othername": "Dare",
+      "email": "tyav2greenz@gmail.com",
+      "account": "4554354534",
       "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300000",
-      "paid": "No",
-      "id": 10
-    },
-    {
-      "name": "dsfsdfdsfsdf ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
+      "accttype": "Current",
       "level": "General Manager",
       "qualif": "MSc.",
       "salary": "₦300,000",
-      "paid": "No",
-      "id": 11
+      "paid": "Yes"
     },
     {
-      "name": "Lawal ",
-      "email": "",
-      "account": "",
+      "id": 4,
+      "surname": "Lawal",
+      "othername": "Dare",
+      "email": "dsladasldla@dhasd.sds",
+      "account": "4576785467",
       "bank": "Access Bank",
-      "level": "General Manager",
+      "accttype": "Current",
+      "level": "Supervisor",
       "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 15
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 16
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 17
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 18
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 19
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 20
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 21
-    },
-    {
-      "name": "dadfasd ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 22
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 23
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 24
-    },
-    {
-      "name": " ",
-      "email": "",
-      "account": "",
-      "bank": "Access Bank",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 25
+      "salary": "₦700,000",
+      "paid": "Yes"
     }
   ],
   "users": [
@@ -208,6 +54,21 @@
       "username": "moses1",
       "password": "password",
       "id": 2
+    },
+    {
+      "username": "ghdd",
+      "password": "password",
+      "id": 3
+    },
+    {
+      "username": "dsdfdfd",
+      "password": "12345678",
+      "id": 4
+    },
+    {
+      "username": "dfkfdsflasdf",
+      "password": "aaaaaaaa",
+      "id": 5
     }
   ],
   "salaries": [
