@@ -3,29 +3,44 @@
         <title>second trial</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
-        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/app1.css">
     </head>
     <body>
 
-            <nav id="navi" class="navbar navbar-expand-lg navbar-light bg-light">
 
-                <div>
-                    glddfgsdfdsfgsdfgsdfd
-                </div>
-                 
-                      <div id="searchform" class="form-inline my-2">
-                        <input id="searchinput" class="form-control form-control-sm" type="number" placeholder="ID" aria-label="Search">
-                        <button id="searchbutton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Staff by ID</button>
-                        <button id="addemply" class="btn" type="button" data-toggle="modal" data-target="#exampleModal">Add Employee</button>
-                        <button id="addUser" class="btn" >Add User</button> -->
-                        <a href="../login.html"><button id="logOut" class="btn">log out</button></a>
-                        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-                        <button id="payallbut">Pay All</button>
-                        <button id="payallbut" data-toggle="modal" data-target="#exampleModa">Add Admin</button>
-
-                      </div>
-                
+                  <nav id="navi" class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        </li>
+                        <li class="nav-item">
+                          <a id="payallbut" class="nav-link" href="#">Pay All</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More Operations
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a id="addemply" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Add Employee</a>
+                            <a class="dropdown-item" href="#" id="payallbut" data-toggle="modal" data-target="#exampleModa">Add Admin</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" id="logOut" class="dropdown-item" href="#">Log out</a>
+                          </div>
+                        </li>
+                        
+                      </ul>
+                      <form class="form-inline my-2 my-lg-0">
+                        <input id="searchinput" class="form-control mr-sm-2" type="search" placeholder="|Search Staff ID|" aria-label="Search">
+                        <button id="searchbutton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                    </div>
                   </nav>
+
+
 <div id="maincont">
 
 <div id="mainfeature">
@@ -37,22 +52,22 @@
             <table id='paytable' >
                 <thead >
                    <!-- <col width="40px" />
-                    <col width="160px" />
+                    <col width="" />
                     <col width="190px" />
-                    <col width="40px" />
-                    <col width="120px" />
-                    <col width="80px" />
-                    <col width="80px" />
-                    <col width="80px" /> -->
+                    <col width="" />
+                    <col width="" />
+                    <col width="" />
+                    <col width="" />
+                    <col width="" /> -->
 
-                    <tr id="thead"><th>ID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>ACCOUNT</th>
-                    <th>LEVEL</th>
-                    <th>SALARY</th>
-                    <th>PAYMENT STATUS</th>
-                    <th></th></tr>
+                    <tr id="thead"><th scope="col" min-width="40px">ID</th>
+                    <th scope="col" min-width="100px">NAME</th>
+                    <th scope="col" class="emailcol">EMAIL</th>
+                    <th scope="col" min-width="80px">ACCOUNT</th>
+                    <th scope="col" min-width="50px">LEVEL</th>
+                    <th scope="col" min-width="60px">SALARY</th>
+                    <th scope="col" min-width="40px">PAYMENT STATUS</th>
+                    <th scope="col" min-width="80px"></th></tr>
                 </thead>
                 <tbody id="employee">
                     
@@ -137,7 +152,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -158,7 +173,7 @@
                     
 
             <br/>
-            <label for="email" class="labels">Email: </label><input type="email" id="email" class="form-control"/><br/>
+            <label for="email" class="labels">Email: </label><input type="email" id="email" class="form-control" required/><br/>
             <label for="acctNum" class="labels">Account Number: </label><input type="text" id="acctNum" class="form-control"/><br/>
 
             <select id="acctbank" class="select-cont custom-select mr-sm-2">
@@ -188,8 +203,75 @@
                     <option>MSc.</option>
                     <option>BSc.</option>
             </select><br/><br/>
-        
             <button id="addBut1">Add Staff</button><br/><br/><span id="updatestaff">
+        
+            
+            </div>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Modal for update -->
+  <div class="modal fade" id="exampleMod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="addStaffModal" class="modal-body">
+                <div id="addFormCont">
+                            
+                        <input type="text" id="surname1" class="form-control" placeholder="First name"><br/><br/>
+               
+                 
+                        <input type="text" id="otherName1" class="form-control" placeholder="Last name">
+                
+                   
+              
+                   
+
+
+                    
+
+            <br/>
+            <label for="email" class="labels">Email: </label><input type="email" id="email1" class="form-control" required/><br/>
+            <label for="acctNum" class="labels">Account Number: </label><input type="text" id="acctNum1" class="form-control"/><br/>
+
+            <select id="acctbank1" class="select-cont custom-select mr-sm-2">
+                <option>Access Bank</option>
+                <option>Diamond Bank</option>
+                <option>First Bank</option>
+                <option>Guaranty Trust Bank</option>
+                <option>Union Bank</option>
+                <option>UBA</option>
+                <option>Wema Bank</option>
+                <option>FCMB</option>
+                <option>Stanbic IBTC</option>
+                <option>Polaris Bank</option>
+                <option>Zenith Bank</option>
+            </select>
+            <select id="accttype1" class="select-cont custom-select mr-sm-2">
+                    <option>Current</option>
+                    <option>Savings</option>
+            </select><br/>
+            <label for="level">Level: </label><br/>
+            <select id="level1" class="select-cont custom-select mr-sm-2">
+                    <option value="General Manager">General Manager</option>
+                    <option value="Managing Director">Managing Director</option>
+                    <option value="Supervisor">Supervisor</option>
+            </select>
+            <select id="qualification1" class="select-cont custom-select mr-sm-2">
+                    <option>MSc.</option>
+                    <option>BSc.</option>
+            </select><br/><br/>
             <button id="updateBut">Update Staff</button><label for="updateId"> </label><input id="updateId" type="number" hidden/>
             </span><input type="text" id="paid" hidden>
         
@@ -200,6 +282,9 @@
       </div>
     </div>
   </div>
+
+
+
 
 
   <div class="modal fade" id="exampleModa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -233,7 +318,5 @@
   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script> -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> -->
   <script type="text/javascript" src="js/payroll.js" ></script> 
-  <script type="text/javascript" src="js/modal.js" ></script> 
-
-    </body>
+</body>
 </html>

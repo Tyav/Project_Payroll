@@ -18,30 +18,56 @@
   ],
   "employees": [
     {
-      "id": 3,
-      "surname": "Lawal",
-      "othername": "Dare",
-      "email": "tyav2greenz@gmail.com",
-      "account": "4554354534",
+      "surname": "Damilola",
+      "othername": "Julius",
+      "email": "julie@gmail.com",
+      "account": "0564932033",
       "bank": "Access Bank",
       "accttype": "Current",
+      "level": "Managing Director",
+      "qualif": "BSc.",
+      "salary": "₦500,000",
+      "paid": "No",
+      "id": 1
+    },
+    {
+      "surname": "Joshua",
+      "othername": "Jumbo",
+      "email": "josh@gmail.com",
+      "account": "4939303020",
+      "bank": "FCMB",
+      "accttype": "Savings",
       "level": "General Manager",
       "qualif": "MSc.",
       "salary": "₦300,000",
-      "paid": "Yes"
+      "paid": "No",
+      "id": 2
     },
     {
-      "id": 4,
-      "surname": "Lawal",
-      "othername": "Dare",
-      "email": "dsladasldla@dhasd.sds",
-      "account": "4576785467",
-      "bank": "Access Bank",
-      "accttype": "Current",
+      "surname": "Kaseem",
+      "othername": "Jimoh",
+      "email": "kasj@gmail.com",
+      "account": "5045940333",
+      "bank": "Guaranty Trust Bank",
+      "accttype": "Savings",
+      "level": "Managing Director",
+      "qualif": "BSc.",
+      "salary": "₦500,000",
+      "paid": "No",
+      "id": 3
+    },
+    {
+      "surname": "Grey",
+      "othername": "White",
+      "email": "gwhite@gmail.com",
+      "account": "4020403394",
+      "bank": "Guaranty Trust Bank",
+      "accttype": "Savings",
       "level": "Supervisor",
       "qualif": "MSc.",
       "salary": "₦700,000",
-      "paid": "Yes"
+      "paid": "No",
+      "id": 4
     }
   ],
   "users": [
@@ -69,6 +95,16 @@
       "username": "dfkfdsflasdf",
       "password": "aaaaaaaa",
       "id": 5
+    },
+    {
+      "username": "mosesfl",
+      "password": "4444444444",
+      "id": 6
+    },
+    {
+      "username": "dare8564",
+      "password": "123456789",
+      "id": 7
     }
   ],
   "salaries": [

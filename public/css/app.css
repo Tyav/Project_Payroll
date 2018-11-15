@@ -60,12 +60,22 @@ body{
 #signup{
 	width: 40%;
 	margin-left: 30%;
-	margin-right: 30%;
+	margin-right:30%;
 	margin-top: 10%;
 }
+#signIn {
+	margin-left: 300px;
+	
+}
+#reqrits{
+	font-size: 12px;
+	margin-left: 250px;
+
+}
 #inputEmail3, #inputPassword3{
-	width: 80%;
-	min-width: 150px;
+	width: 60%;
+	min-width: 120px;
+	height: 50px;
 }
 #newuser{
 	color: black;
@@ -92,6 +102,9 @@ body{
 	padding-top: 90px;
 	margin: 5;
 }
+#welcome {
+	padding-bottom: 20px;
+}
 #searchbutton {
 	border-radius: 15px;
 
@@ -100,7 +113,7 @@ body{
 	background-color: #fdf8f2;
 	color: black;
 	padding: 10px;
-	width: 1350px;
+	width: 100%;
 	position: fixed;
 }
 #tagline {
@@ -129,88 +142,26 @@ body{
 }
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 20px;
 	font-weight: 400;
 	color: #3b3b3b;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-	background: white;
+	background-position: center;
+	background-color: whitesmoke;
+	background-size: cover;
+	min-height: 100%;
+	min-width: 100%;
 }
-.rows:nth-of-type(odd) {
-	background: #e9e9e9;
-}
-.rows:nth-of-type(even) {
-	background: rgb(140, 140, 243);
-}
-
-#thead {
-	background: rgb(52, 36, 139);
-	color: #e9e9e9;
-	align: right;
-}
-#employee {
-	color: #112236;
-	font-size: .8em;
-}
-table#paytable {
-	width: 100%;
-}
-table#paytable th { overflow: visible;}
-#addUser {
-	margin: auto;
-	width: 180px;
-	color: white;
-	margin-left: 5;
-}
-#deleteId, #payId{
-	width: 50px;
-}
-#sidePanel{
-	padding-top: 50px;
-
-}
-#searchinput {
-	width: 80px;
-}
-#navi {
-	position: fixed;
-	width: 100%;
-	max-height: 50px;
-}
-#addstafflink {
-	display: none;
-}
-
-#acctbank, #accttype, #level, #qualification {
-	width: 80px;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-#addFormCont {
-	color: black;
-}
-#updateId {
-	width: 50px;
-}
-.select-cont {
-	width: 40px;
-
-}
-.spaces {
-	padding-bottom: 10;
-}
-#maincont {
-	width: 100%;
-}
-#welcome {
-	
+h2 {
+	text-align: center;
 }
 
 
 /* media query */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 900px) {
 	body {
 		font-size: inherit;
 	}
@@ -246,9 +197,10 @@ table#paytable th { overflow: visible;}
 		margin-right: 5;
 		display: inline;
 	}
-	#addStaffs {
+	#signup {
 		margin: auto;
 		padding-bottom: 0%;
+		padding-top: 50px;
 		transform: scale(2);
 	}
 	#addForm {

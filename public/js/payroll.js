@@ -15,14 +15,14 @@ $('#updatestaff').click(function() {
 //HERE WE COLLECT INFO FOR THE FULL DISPLAY
 $.get("http://localhost:3000/employees", function(employees) {
     $.each(employees, function(i, emply) {
-        $('#employee').append('<tr class="rows">' + '<td>' +
-        emply.id + '<td>' + 
-        emply.surname + ' ' + emply.othername  + '<td>' +
-        emply.email + '<td>' +
-        emply.account + '<td>' +
-        emply.level + '<td>' +
-        emply.salary + '<td>' +
-        emply.paid + '<td><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleModal" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+        $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
+        emply.id + '<td data-label="NAME">' + 
+        emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
+        emply.email + '<td data-label="ACCOUNT">' +
+        emply.account + '<td data-label="LEVEL">' +
+        emply.level + '<td data-label="SALARY">' +
+        emply.salary + '<td data-label="PAYMENT STATUS">' +
+        emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
     });
     $('.delbut').click(function() {
         var staffid = this.id;
@@ -36,6 +36,8 @@ $.get("http://localhost:3000/employees", function(employees) {
         
         });
     });
+    
+    
     //TO PAY STAFF
     $('.paybut').click(function() {
         var payId = this.id.split('p').join('');
@@ -81,16 +83,16 @@ $.get("http://localhost:3000/employees", function(employees) {
 function edits(x) {
     var stafid = x.split('e').join('');
     $.get('employees/' + stafid, function(data){
-        $('#surname').val(data.surname);
-            $('#otherName').val(data.othername);
-            $('#email').val(data.email);
-            $('#acctNum').val(data.account);
-            $('#acctbank').val(data.bank);
-            $('#accttype').val(data.accttype);
-            $('#level').val(data.level);
-            $('#qualification').val(data.qualif);
-            $('#paid').val(data.paid);
-            $('#updateId').val(data.id);
+        $('#surname1').val(data.surname);
+            $('#otherName1').val(data.othername);
+            $('#email1').val(data.email);
+            $('#acctNum1').val(data.account);
+            $('#acctbank1').val(data.bank);
+            $('#accttype1').val(data.accttype);
+            $('#level1').val(data.level);
+            $('#qualification1').val(data.qualif);
+            $('#paid1').val(data.paid);
+            $('#updateId1').val(data.id);
     })
 }
 
@@ -121,7 +123,7 @@ $('#addBut1').click(function() {
                 paid: "No"
             }, 
             function(data, status) {
-                alert(status)
+                //alert(status)
                 window.location.replace("http://localhost:3000");
             })
         });
@@ -140,14 +142,14 @@ $('#searchbutton').click(function() {
             var search = emply['id']
             /*if ($('#searchId').val() === 'id'){*/
             if (search === parseInt($('#searchinput').val())){
-                $('#employee').append('<tr class="rows">' + '<td>' +
-        emply.id + '<td>' + 
-        emply.surname + ' ' + emply.othername  + '<td>' +
-        emply.email + '<td>' +
-        emply.account + '<td>' +
-        emply.level + '<td>' +
-        emply.salary + '<td>' +
-        emply.paid + '<td><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleModal" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+                $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
+                emply.id + '<td data-label="NAME">' + 
+                emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
+                emply.email + '<td data-label="ACCOUNT">' +
+                emply.account + '<td data-label="LEVEL">' +
+                emply.level + '<td data-label="SALARY">' +
+                emply.salary + '<td data-label="PAYMENT STATUS">' +
+                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleModal" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
             } 
         })
     });
@@ -159,7 +161,7 @@ $('#searchbutton').click(function() {
 $('#deletebutton').click(function() {
     //if ($('#searchinput').val() !== " " && $('#searchinput') !== ""){
     $.delete("/employees", function(employees){
-        alert('gotten');
+        //alert('gotten');
         $.each(employees, function(i, emply){
             if ($('#deleteId').val() === 'id'){
                 if (emply[$('#deleteId').val()] === parseInt($('#deleteinput').val())){
@@ -249,8 +251,8 @@ $('#addNewUser').click(function() {
                 password: $('#confNewUserPassword').val()
             },
             function(data, status) {
-                console.log(data);
-                alert(status);
+                //console.log(data);
+                //alert(status);
             })
         }
     });
@@ -270,15 +272,21 @@ $('#signIn').click(function() {
         $('#inputEmail3, #inputPassword3').css("box-shadow","0 0 3px red");
     } else {
         $.get('http://localhost:3000/users', function(users) {
+            var g = 0
             $.each(users, function(i, user){
                 if (user.username === userName && user.password === password1) {
-                    alert('corret');
+                    //alert('corret');
+                    g = 1;
                     window.location.replace("http://localhost:3000");
                 } else {
-                    alert('invalid user');
+                    g = 0;//alert('invalid user');
                 }
-            })
-        })
+            });
+            if (g === 0){
+                alert("You are not an Admin");
+            }
+        });
+        
     }
 })
 
@@ -292,7 +300,7 @@ $('#updateBut').click(function() {
         var staffid = $('#updateId').val();
 
         $.get('/employees/' + staffid, function(employees) {
-            alert('start')
+            //alert('start')
             var pay = employees.paid;
             var sal = employees.salary
             $.ajax({
@@ -300,14 +308,14 @@ $('#updateBut').click(function() {
                 method: 'PUT',
                 data: {
                     id: parseInt(staffid),
-                    surname: $('#surname').val(),
-                    othername: $('#otherName').val(),
-                    email: $('#email').val(),
-                    account: $('#acctNum').val(),
-                    accttype: $('#accttype').val(),
-                    bank: $('#acctbank').val(),
-                    level: $('#level').val(),
-                    qualif: $('#qualification').val(),
+                    surname: $('#surname1').val(),
+                    othername: $('#otherName1').val(),
+                    email: $('#email1').val(),
+                    account: $('#acctNum1').val(),
+                    accttype: $('#accttype1').val(),
+                    bank: $('#acctbank1').val(),
+                    level: $('#level1').val(),
+                    qualif: $('#qualification1').val(),
                     salary: sal,
                     paid: pay
 
@@ -323,7 +331,7 @@ $('#updateBut').click(function() {
                 },
                 success: function(response) {
                     alert('Done');
-                    
+                    window.location.replace("http://localhost:3000");
                 }
             });
         });
@@ -346,7 +354,7 @@ $('#deletebut').click(function() {
             url: '/employees/' + staffid,
             method: 'delete',
             success: function(response) {
-                alert('success');
+                //alert('successfully deleted');
             }
         })
     }
@@ -359,7 +367,6 @@ $('#deletebut').click(function() {
 //PAY ALL
 $('#payallbut').click(function() {
     
-    alert('game');
     
     $.get('http://localhost:3000/employees', function(employees) {
         $.each(employees, function(i, emply) {
@@ -392,13 +399,12 @@ $('#payallbut').click(function() {
                     paid: "Yes"     
                 },
                 success: function(response) {
-                    alert(response);
+                    window.location.replace("http://localhost:3000");
                 }
             });
         });
     })
 });
-
 
 
 
