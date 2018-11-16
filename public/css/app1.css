@@ -127,7 +127,7 @@ table th {
     text-transform: uppercase;
 }
     
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 910px) {
     table {
         border: 0;
     }
@@ -156,7 +156,7 @@ table th {
     table td {
         border-bottom: 1px solid #ddd;
         display: block;
-        font-size: .8em;
+        font-size: 1.1em;
         text-align: right;
     }
     table td::before {

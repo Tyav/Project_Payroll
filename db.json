@@ -18,19 +18,20 @@
   ],
   "employees": [
     {
+      "id": 1,
       "surname": "Damilola",
       "othername": "Julius",
       "email": "julie@gmail.com",
       "account": "0564932033",
-      "bank": "Access Bank",
       "accttype": "Current",
+      "bank": "Access Bank",
       "level": "Managing Director",
       "qualif": "BSc.",
-      "salary": "₦500,000",
-      "paid": "No",
-      "id": 1
+      "salary": "₦500000",
+      "paid": "Yes"
     },
     {
+      "id": 2,
       "surname": "Joshua",
       "othername": "Jumbo",
       "email": "josh@gmail.com",
@@ -39,11 +40,11 @@
       "accttype": "Savings",
       "level": "General Manager",
       "qualif": "MSc.",
-      "salary": "₦300,000",
-      "paid": "No",
-      "id": 2
+      "salary": "₦300000",
+      "paid": "Yes"
     },
     {
+      "id": 3,
       "surname": "Kaseem",
       "othername": "Jimoh",
       "email": "kasj@gmail.com",
@@ -52,11 +53,11 @@
       "accttype": "Savings",
       "level": "Managing Director",
       "qualif": "BSc.",
-      "salary": "₦500,000",
-      "paid": "No",
-      "id": 3
+      "salary": "₦500000",
+      "paid": "Yes"
     },
     {
+      "id": 4,
       "surname": "Grey",
       "othername": "White",
       "email": "gwhite@gmail.com",
@@ -65,9 +66,60 @@
       "accttype": "Savings",
       "level": "Supervisor",
       "qualif": "MSc.",
-      "salary": "₦700,000",
+      "salary": "₦700000",
+      "paid": "Yes"
+    },
+    {
+      "id": 5,
+      "surname": "Rukee",
+      "othername": "Ogigbo",
+      "email": "rukbo@gmail.com",
+      "account": "4030439202",
+      "bank": "Access Bank",
+      "accttype": "Current",
+      "level": "General Manager",
+      "qualif": "MSc.",
+      "salary": "₦300000",
+      "paid": "Yes"
+    },
+    {
+      "surname": "Dare",
+      "othername": "Lawal",
+      "email": "lawadare@gmail.com",
+      "account": "0904593433",
+      "bank": "First Bank",
+      "accttype": "Current",
+      "level": "Supervisor",
+      "qualif": "MSc.",
+      "salary": "₦700000",
       "paid": "No",
-      "id": 4
+      "id": 6
+    },
+    {
+      "surname": "Kwagh",
+      "othername": "Gift",
+      "email": "gifk@yahoo.com",
+      "account": "405945494-",
+      "bank": "Stanbic IBTC",
+      "accttype": "Savings",
+      "level": "Supervisor",
+      "qualif": "MSc.",
+      "salary": "₦700000",
+      "paid": "No",
+      "id": 7
+    },
+    {
+      "surname": "Julius",
+      "othername": "Oboh",
+      "email": "j_obo@dart.com",
+      "account": "5403459670",
+      "bank": "UBA",
+      "accttype": "Savings",
+      "level": "Managing Director",
+      "qualif": "MSc.",
+      "salary": "₦500000",
+      "paid": "No",
+      "id": 8
     }
   ],
   "users": [
@@ -109,9 +161,9 @@
   ],
   "salaries": [
     {
-      "Managing Director": "₦500,000",
-      "Supervisor": "₦700,000",
-      "General Manager": "₦300,000"
+      "Managing Director": "₦500000",
+      "Supervisor": "₦700000",
+      "General Manager": "₦300000"
     }
   ],
   "comments": [

@@ -14,6 +14,8 @@ $('#updatestaff').click(function() {
 
 //HERE WE COLLECT INFO FOR THE FULL DISPLAY
 $.get("http://localhost:3000/employees", function(employees) {
+    let total = 0;
+    var saler;
     $.each(employees, function(i, emply) {
         $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
         emply.id + '<td data-label="NAME">' + 
@@ -23,15 +25,19 @@ $.get("http://localhost:3000/employees", function(employees) {
         emply.level + '<td data-label="SALARY">' +
         emply.salary + '<td data-label="PAYMENT STATUS">' +
         emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+        total += parseInt(emply.salary.split('₦').join(''));
+        //alert(total)
     });
+    $('#employee').append('<tr class="rows">' + '<td>' + '<td>' + '<td>' + '<td>' +
+    '<td>' + '<span id="totals">Total</span>' + '<td>' + '₦' + total + '<td>' + '<td>' )
     $('.delbut').click(function() {
         var staffid = this.id;
-        alert(staffid)
+        // alert(staffid)
         $.ajax({
             url: `/employees/${staffid}`,
             method: 'delete',
             success: function(response) {
-                window.location.replace("http://localhost:3000");
+                window.location.replace("http://localhost:3000/payroll.html");
             } 
         
         });
@@ -70,20 +76,17 @@ $.get("http://localhost:3000/employees", function(employees) {
                     paid: "Yes"     
                 },
                 success: function(response) {
-                    window.location.replace("http://localhost:3000");
+                    window.location.replace("http://localhost:3000/payroll.html");
                 }
             });
         });
 
-    });       
-});
-
-//DELETE EMPLOYEE <a href="http://localhost:3000/employees/?id=${emply.id}"></a>
-
-function edits(x) {
-    var stafid = x.split('e').join('');
-    $.get('employees/' + stafid, function(data){
-        $('#surname1').val(data.surname);
+    }); 
+    $('.edit').click(function() {
+        // alert(this.id)
+        var stafid = this.id.split('e').join('');
+        $.get('employees/' + stafid, function(data){
+            $('#surname1').val(data.surname);
             $('#otherName1').val(data.othername);
             $('#email1').val(data.email);
             $('#acctNum1').val(data.account);
@@ -92,15 +95,52 @@ function edits(x) {
             $('#level1').val(data.level);
             $('#qualification1').val(data.qualif);
             $('#paid1').val(data.paid);
-            $('#updateId1').val(data.id);
-    })
-}
+            $('#updateId').val(data.id);
+        });
+    });     
+});
+
+//DELETE EMPLOYEE <a href="http://localhost:3000/employees/?id=${emply.id}"></a>
+
+// function edits(x) {
+//     var stafid = x.split('e').join('');
+//     $.get('employees/' + stafid, function(data){
+//         $('#surname1').val(data.surname);
+//         $('#otherName1').val(data.othername);
+//         $('#email1').val(data.email);
+//         $('#acctNum1').val(data.account);
+//         $('#acctbank1').val(data.bank);
+//         $('#accttype1').val(data.accttype);
+//         $('#level1').val(data.level);
+//         $('#qualification1').val(data.qualif);
+//         $('#paid1').val(data.paid);
+//         $('#updateId').val(data.id);
+//     })
+// }
 
 
 
 //ADDING AN EMPLOYEE
 
+//HERE WE CHECK IF THE EMAIL AND ACCOUNT NUMBER HAS NOT BEEN REGISTERED OR IS NOT TIED TO AN EMPLOYEE
+$('#email').keyup(function(){
+    $('#addBut1').prop("disabled", true);
+
+    $.get("/employees", function(employees){
+        var g = 0;
+        $.each(employees, function(i, emply){
+            if (emply.email === $('#email').val()){
+                g = 1;
+            }
+        })
+        if (g === 0) {
+            $('#addBut1').removeAttr("disabled");
+            // alert('disabled')  
+        }
+    })
+})
 $('#addBut1').click(function() {
+    
     
     
 //HERE WE COMPUTE FOR THE SALARY OF THE EMPLOYEE
@@ -124,7 +164,7 @@ $('#addBut1').click(function() {
             }, 
             function(data, status) {
                 //alert(status)
-                window.location.replace("http://localhost:3000");
+                window.location.replace("http://localhost:3000/payroll.html");
             })
         });
     });
@@ -139,7 +179,7 @@ $('#searchbutton').click(function() {
     //if ($('#searchinput').val() !== " " && $('#searchinput') !== ""){
     $.get("/employees", function(employees){
         $.each(employees, function(i, emply){
-            var search = emply['id']
+            var search = emply.id
             /*if ($('#searchId').val() === 'id'){*/
             if (search === parseInt($('#searchinput').val())){
                 $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
@@ -149,9 +189,87 @@ $('#searchbutton').click(function() {
                 emply.account + '<td data-label="LEVEL">' +
                 emply.level + '<td data-label="SALARY">' +
                 emply.salary + '<td data-label="PAYMENT STATUS">' +
-                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleModal" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+            } else if (Object.values(emply).includes($('#searchinput').val())){
+                alert('Yes')
+                $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
+                emply.id + '<td data-label="NAME">' + 
+                emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
+                emply.email + '<td data-label="ACCOUNT">' +
+                emply.account + '<td data-label="LEVEL">' +
+                emply.level + '<td data-label="SALARY">' +
+                emply.salary + '<td data-label="PAYMENT STATUS">' +
+                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
             } 
         })
+        $('.edit').click(function() {
+            // alert(this.id)
+            var stafid = this.id.split('e').join('');
+            $.get('employees/' + stafid, function(data){
+                $('#surname1').val(data.surname);
+                $('#otherName1').val(data.othername);
+                $('#email1').val(data.email);
+                $('#acctNum1').val(data.account);
+                $('#acctbank1').val(data.bank);
+                $('#accttype1').val(data.accttype);
+                $('#level1').val(data.level);
+                $('#qualification1').val(data.qualif);
+                $('#paid1').val(data.paid);
+                $('#updateId').val(data.id);
+            });
+        });
+        $('.delbut').click(function() {
+            var staffid = this.id;
+            // alert(staffid)
+            $.ajax({
+                url: `/employees/${staffid}`,
+                method: 'delete',
+                success: function(response) {
+                    window.location.replace("http://localhost:3000/payroll.html");
+                } 
+            
+            });
+        });
+        
+        
+        //TO PAY STAFF
+        $('.paybut').click(function() {
+            var payId = this.id.split('p').join('');
+            $.get('/employees/' + payId, function(emply) {
+                var staffid = emply.id;
+                var surname = emply.surname;
+                var othername = emply.othername;
+                var emails = emply.email;
+                var account = emply.account;
+                var accttype = emply.accttype;
+                var levels = emply.level;
+                var qual = emply.qualif;
+                var salarys = emply.salary;
+                var bank = emply.bank;
+    
+                $.ajax({
+                    url: `/employees/${payId}`,
+                    method: 'PUT',
+                    data: {
+                        id: parseInt(staffid),
+                        surname: surname,
+                        othername: othername,
+                        email: emails,
+                        account: account,
+                        bank: bank,
+                        accttype: accttype,
+                        level: levels,
+                        qualif: qual,
+                        salary: salarys,
+                        paid: "Yes"     
+                    },
+                    success: function(response) {
+                        // window.location.replace("http://localhost:3000/payroll.html");
+                    }
+                });
+            });
+    
+        }); 
     });
     
 });
@@ -277,12 +395,13 @@ $('#signIn').click(function() {
                 if (user.username === userName && user.password === password1) {
                     //alert('corret');
                     g = 1;
-                    window.location.replace("http://localhost:3000");
+                    
+                    window.location.replace("payroll.html");
                 } else {
-                    g = 0;//alert('invalid user');
+                    //alert('invalid user');
                 }
             });
-            if (g === 0){
+            if (g !== 1){
                 alert("You are not an Admin");
             }
         });
@@ -331,7 +450,7 @@ $('#updateBut').click(function() {
                 },
                 success: function(response) {
                     alert('Done');
-                    window.location.replace("http://localhost:3000");
+                    window.location.replace("http://localhost:3000/payroll.html");
                 }
             });
         });
@@ -399,7 +518,7 @@ $('#payallbut').click(function() {
                     paid: "Yes"     
                 },
                 success: function(response) {
-                    window.location.replace("http://localhost:3000");
+                    window.location.replace("http://localhost:3000/payroll.html");
                 }
             });
         });
