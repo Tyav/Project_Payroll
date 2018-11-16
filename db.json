@@ -23,11 +23,11 @@
       "othername": "Julius",
       "email": "julie@gmail.com",
       "account": "0564932033",
-      "accttype": "Current",
       "bank": "Access Bank",
+      "accttype": "Current",
       "level": "Managing Director",
       "qualif": "BSc.",
-      "salary": "₦500000",
+      "salary": "500000",
       "paid": "Yes"
     },
     {
@@ -40,7 +40,7 @@
       "accttype": "Savings",
       "level": "General Manager",
       "qualif": "MSc.",
-      "salary": "₦300000",
+      "salary": "300000",
       "paid": "Yes"
     },
     {
@@ -53,7 +53,7 @@
       "accttype": "Savings",
       "level": "Managing Director",
       "qualif": "BSc.",
-      "salary": "₦500000",
+      "salary": "500000",
       "paid": "Yes"
     },
     {
@@ -66,7 +66,7 @@
       "accttype": "Savings",
       "level": "Supervisor",
       "qualif": "MSc.",
-      "salary": "₦700000",
+      "salary": "700000",
       "paid": "Yes"
     },
     {
@@ -79,34 +79,34 @@
       "accttype": "Current",
       "level": "General Manager",
       "qualif": "MSc.",
-      "salary": "₦300000",
+      "salary": "300000",
       "paid": "Yes"
     },
     {
+      "id": 6,
       "surname": "Dare",
       "othername": "Lawal",
       "email": "lawadare@gmail.com",
       "account": "0904593433",
       "bank": "First Bank",
       "accttype": "Current",
-      "level": "Supervisor",
-      "qualif": "MSc.",
-      "salary": "₦700000",
-      "paid": "No",
-      "id": 6
+      "level": "Managing Director",
+      "qualif": "BSc.",
+      "salary": "700000",
+      "paid": "Yes"
     },
     {
+      "id": 7,
       "surname": "Kwagh",
       "othername": "Gift",
       "email": "gifk@yahoo.com",
-      "account": "405945494-",
+      "account": "405945494",
       "bank": "Stanbic IBTC",
       "accttype": "Savings",
       "level": "Supervisor",
       "qualif": "MSc.",
-      "salary": "₦700000",
-      "paid": "No",
-      "id": 7
+      "salary": "700000",
+      "paid": "Yes"
     },
     {
       "surname": "Julius",
@@ -117,9 +117,48 @@
       "accttype": "Savings",
       "level": "Managing Director",
       "qualif": "MSc.",
-      "salary": "₦500000",
+      "salary": "500000",
       "paid": "No",
       "id": 8
+    },
+    {
+      "id": 9,
+      "surname": "Grey",
+      "othername": "White",
+      "email": "tasdhs@gmail.com",
+      "account": "59403404",
+      "accttype": "Current",
+      "bank": "Access Bank",
+      "level": "General Manager",
+      "qualif": "MSc.",
+      "salary": "300000",
+      "paid": "No"
+    },
+    {
+      "surname": "Grace",
+      "othername": "Frank",
+      "email": "frankgracey@gmail.com",
+      "account": "3036964317",
+      "bank": "First Bank",
+      "accttype": "Savings",
+      "level": "Managing Director",
+      "qualif": "MSc.",
+      "salary": "500000",
+      "paid": "No",
+      "id": 10
+    },
+    {
+      "surname": "Eziokwubundu",
+      "othername": "Chibueze",
+      "email": "eziokwubunduchibueze@gmail.com",
+      "account": "2076678786",
+      "bank": "Access Bank",
+      "accttype": "Current",
+      "level": "General Manager",
+      "qualif": "MSc.",
+      "salary": "300000",
+      "paid": "No",
+      "id": 11
     }
   ],
   "users": [
@@ -161,9 +200,9 @@
   ],
   "salaries": [
     {
-      "Managing Director": "₦500000",
-      "Supervisor": "₦700000",
-      "General Manager": "₦300000"
+      "Managing Director": "500000",
+      "Supervisor": "700000",
+      "General Manager": "300000"
     }
   ],
   "comments": [

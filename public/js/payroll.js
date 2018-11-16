@@ -15,26 +15,32 @@ $('#updatestaff').click(function() {
 //HERE WE COLLECT INFO FOR THE FULL DISPLAY
 $.get("http://localhost:3000/employees", function(employees) {
     let total = 0;
-    var saler;
     $.each(employees, function(i, emply) {
         $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
         emply.id + '<td data-label="NAME">' + 
         emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
         emply.email + '<td data-label="ACCOUNT">' +
         emply.account + '<td data-label="LEVEL">' +
-        emply.level + '<td data-label="SALARY">' +
+        emply.level + '<td data-label="SALARY">' + '<span>&#8358;</span>' +
         emply.salary + '<td data-label="PAYMENT STATUS">' +
-        emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
-        total += parseInt(emply.salary.split('₦').join(''));
+        emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">Edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+        total += parseInt(emply.salary);
+        if (emply.paid === "Yes"){
+            $('#' + emply.id + 'p').prop("disabled", true)
+        }
+
         //alert(total)
+        // alert(emply.salary.split(₦).join(','))
+        //alert('&#8358')
+
     });
     $('#employee').append('<tr class="rows">' + '<td>' + '<td>' + '<td>' + '<td>' +
-    '<td>' + '<span id="totals">Total</span>' + '<td>' + '₦' + total + '<td>' + '<td>' )
+    '<td>' + '<span id="totals">Total</span>' + '<td>' + '<span>&#8358;</span>' + total + '<td>' + '<td>' )
     $('.delbut').click(function() {
         var staffid = this.id;
         // alert(staffid)
         $.ajax({
-            url: `/employees/${staffid}`,
+            url: `http://localhost:3000/employees/${staffid}`,
             method: 'delete',
             success: function(response) {
                 window.location.replace("http://localhost:3000/payroll.html");
@@ -47,7 +53,7 @@ $.get("http://localhost:3000/employees", function(employees) {
     //TO PAY STAFF
     $('.paybut').click(function() {
         var payId = this.id.split('p').join('');
-        $.get('/employees/' + payId, function(emply) {
+        $.get('http://localhost:3000/employees/' + payId, function(emply) {
             var staffid = emply.id;
             var surname = emply.surname;
             var othername = emply.othername;
@@ -60,7 +66,7 @@ $.get("http://localhost:3000/employees", function(employees) {
             var bank = emply.bank;
 
             $.ajax({
-                url: `/employees/${payId}`,
+                url: `http://localhost:3000/employees/${payId}`,
                 method: 'PUT',
                 data: {
                     id: parseInt(staffid),
@@ -83,9 +89,9 @@ $.get("http://localhost:3000/employees", function(employees) {
 
     }); 
     $('.edit').click(function() {
-        // alert(this.id)
+        //alert(this.id)
         var stafid = this.id.split('e').join('');
-        $.get('employees/' + stafid, function(data){
+        $.get('http://localhost:3000/employees/' + stafid, function(data){
             $('#surname1').val(data.surname);
             $('#otherName1').val(data.othername);
             $('#email1').val(data.email);
@@ -123,34 +129,85 @@ $.get("http://localhost:3000/employees", function(employees) {
 //ADDING AN EMPLOYEE
 
 //HERE WE CHECK IF THE EMAIL AND ACCOUNT NUMBER HAS NOT BEEN REGISTERED OR IS NOT TIED TO AN EMPLOYEE
-$('#email').keyup(function(){
-    $('#addBut1').prop("disabled", true);
 
-    $.get("/employees", function(employees){
+$.get("http://localhost:3000/employees", function(employees){
+    $('#email').keyup(function(){
+        $('#addBut1').prop("disabled", true);
+    
         var g = 0;
         $.each(employees, function(i, emply){
             if (emply.email === $('#email').val()){
                 g = 1;
             }
+            if (g === 0) {
+                $('#addBut1').removeAttr("disabled");
+                    // alert('disabled')  
+            }
+        })
+    })
+});
+
+// $('#acctNum1').keyup(function(){
+//     $('#addBut1').prop("disabled", true);
+
+//     $.get("http://localhost:3000//employees", function(employees){
+//         var g = 0;
+//         $.each(employees, function(i, emply){
+//             if (emply.account === $('#acctNum1').val()){
+//                 g = 1;
+//             }
+//         })
+//         if (g === 0) {
+//             $('#addBut1').removeAttr("disabled");
+//             // alert('disabled')  
+//         }
+//     })
+// });
+
+$('#acctNum').keyup(function(){
+    $('#addBut1').removeAttr("disabled");
+    $.get("http://localhost:3000/employees", function(employees){
+        var g = 0;
+        $.each(employees, function(i, emply){
+            if (emply.account === $('#acctNum').val()){
+                $('#addBut1').prop("disabled", true);
+            }
         })
         if (g === 0) {
-            $('#addBut1').removeAttr("disabled");
             // alert('disabled')  
         }
     })
-})
+});
+
+// $('#email1').keyup(function(){
+//     $('#addBut1').prop("disabled", true);
+
+//     $.get("http://localhost:3000//employees", function(employees){
+//         var g = 0;
+//         $.each(employees, function(i, emply){
+//             if (emply.email === $('#email1').val()){
+//                 g = 1;
+//             }
+//         })
+//         if (g === 0) {
+//             $('#addBut1').removeAttr("disabled");
+//             // alert('disabled')  
+//         }
+//     })
+// });
+
 $('#addBut1').click(function() {
     
     
     
 //HERE WE COMPUTE FOR THE SALARY OF THE EMPLOYEE
     
-    $.get("/salaries", function(salaries) {
+    $.get("http://localhost:3000/salaries", function(salaries) {
         $.each(salaries, function(i, salar){
             console.log(salar[$('#level').val()]);
             var sal = salar[$('#level').val()];
             
-            $.post('/employees', {
+            $.post('http://localhost:3000/employees', {
                 surname: $('#surname').val(),
                 othername: $('#otherName').val(),
                 email: $('#email').val(),
@@ -177,7 +234,7 @@ $('#searchbutton').click(function() {
     $('#employee').empty();
     //$('#searchtable').show();
     //if ($('#searchinput').val() !== " " && $('#searchinput') !== ""){
-    $.get("/employees", function(employees){
+    $.get("http://localhost:3000/employees", function(employees){
         $.each(employees, function(i, emply){
             var search = emply.id
             /*if ($('#searchId').val() === 'id'){*/
@@ -187,25 +244,31 @@ $('#searchbutton').click(function() {
                 emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
                 emply.email + '<td data-label="ACCOUNT">' +
                 emply.account + '<td data-label="LEVEL">' +
-                emply.level + '<td data-label="SALARY">' +
+                emply.level + '<td data-label="SALARY">' + '<span>&#8358;</span>' +
                 emply.salary + '<td data-label="PAYMENT STATUS">' +
-                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">Edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+                if (emply.paid === "Yes"){
+                    $('#' + emply.id + 'p').prop("disabled", true)
+                }
             } else if (Object.values(emply).includes($('#searchinput').val())){
-                alert('Yes')
+                //alert('Yes')
                 $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
                 emply.id + '<td data-label="NAME">' + 
                 emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
                 emply.email + '<td data-label="ACCOUNT">' +
                 emply.account + '<td data-label="LEVEL">' +
-                emply.level + '<td data-label="SALARY">' +
+                emply.level + '<td data-label="SALARY">' + '<span>&#8358;</span>' +
                 emply.salary + '<td data-label="PAYMENT STATUS">' +
-                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+                emply.paid + '<td data-label=""><button class="paybut" id="' + emply.id + 'p">Pay</button><button type="button" class="edit" id="' + emply.id + 'e" data-toggle="modal" data-target="#exampleMod" onclick="edits(this.id)">Edit</button><button type="button" class="delbut" id="' + emply.id + '">Del</button>');
+                if (emply.paid === "Yes"){
+                    $('#' + emply.id + 'p').prop("disabled", true)
+                }
             } 
         })
         $('.edit').click(function() {
             // alert(this.id)
             var stafid = this.id.split('e').join('');
-            $.get('employees/' + stafid, function(data){
+            $.get('http://localhost:3000/employees/' + stafid, function(data){
                 $('#surname1').val(data.surname);
                 $('#otherName1').val(data.othername);
                 $('#email1').val(data.email);
@@ -222,9 +285,10 @@ $('#searchbutton').click(function() {
             var staffid = this.id;
             // alert(staffid)
             $.ajax({
-                url: `/employees/${staffid}`,
+                url: `http://localhost:3000/employees/${staffid}`,
                 method: 'delete',
                 success: function(response) {
+                    alert('deleted')
                     window.location.replace("http://localhost:3000/payroll.html");
                 } 
             
@@ -235,7 +299,7 @@ $('#searchbutton').click(function() {
         //TO PAY STAFF
         $('.paybut').click(function() {
             var payId = this.id.split('p').join('');
-            $.get('/employees/' + payId, function(emply) {
+            $.get('http://localhost:3000/employees/' + payId, function(emply) {
                 var staffid = emply.id;
                 var surname = emply.surname;
                 var othername = emply.othername;
@@ -248,7 +312,7 @@ $('#searchbutton').click(function() {
                 var bank = emply.bank;
     
                 $.ajax({
-                    url: `/employees/${payId}`,
+                    url: `http://localhost:3000/employees/${payId}`,
                     method: 'PUT',
                     data: {
                         id: parseInt(staffid),
@@ -265,6 +329,7 @@ $('#searchbutton').click(function() {
                     },
                     success: function(response) {
                         // window.location.replace("http://localhost:3000/payroll.html");
+                        alert('Successful')
                     }
                 });
             });
@@ -278,7 +343,7 @@ $('#searchbutton').click(function() {
 //TO DELETE FROM THE DATA
 $('#deletebutton').click(function() {
     //if ($('#searchinput').val() !== " " && $('#searchinput') !== ""){
-    $.delete("/employees", function(employees){
+    $.delete("http://localhost:3000/employees", function(employees){
         //alert('gotten');
         $.each(employees, function(i, emply){
             if ($('#deleteId').val() === 'id'){
@@ -354,7 +419,7 @@ $('#confNewUserPassword').keyup(function() {
 
 $('#addNewUser').click(function() {
     var g = 0;
-    $.get("/users", function(users) {
+    $.get("http://localhost:3000/users", function(users) {
         $.each(users, function(i, user) {
             if (user.username === $('#newUserEmail').val()){
                 g = 1;
@@ -364,7 +429,7 @@ $('#addNewUser').click(function() {
         if (g === 1) {
             alert('User already exist');
         } else {
-            $.post('/users', {
+            $.post('http://localhost:3000/users', {
                 username: $('#newUserEmail').val(),
                 password: $('#confNewUserPassword').val()
             },
@@ -396,7 +461,7 @@ $('#signIn').click(function() {
                     //alert('corret');
                     g = 1;
                     
-                    window.location.replace("payroll.html");
+                    window.location.replace("public/payroll.html");
                 } else {
                     //alert('invalid user');
                 }
@@ -418,12 +483,12 @@ $('#updateBut').click(function() {
     } else {
         var staffid = $('#updateId').val();
 
-        $.get('/employees/' + staffid, function(employees) {
+        $.get('http://localhost:3000/employees/' + staffid, function(employees) {
             //alert('start')
             var pay = employees.paid;
             var sal = employees.salary
             $.ajax({
-                url: '/employees/' + staffid,
+                url: 'http://localhost:3000/employees/' + staffid,
                 method: 'PUT',
                 data: {
                     id: parseInt(staffid),
@@ -470,10 +535,10 @@ $('#deletebut').click(function() {
     } else {
         var staffid = $('#deleteId').val();
         $.ajax({
-            url: '/employees/' + staffid,
+            url: 'http://localhost:3000/employees/' + staffid,
             method: 'delete',
             success: function(response) {
-                //alert('successfully deleted');
+                alert('successfully deleted');
             }
         })
     }
@@ -502,7 +567,7 @@ $('#payallbut').click(function() {
             var bank = emply.bank;
 
             $.ajax({
-                url: `/employees/${staffid}`,
+                url: `http://localhost:3000/employees/${staffid}`,
                 method: 'PUT',
                 data: {
                     id: parseInt(staffid),
