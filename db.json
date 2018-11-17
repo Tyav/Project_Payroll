@@ -109,6 +109,7 @@
       "paid": "Yes"
     },
     {
+      "id": 8,
       "surname": "Julius",
       "othername": "Oboh",
       "email": "j_obo@dart.com",
@@ -118,8 +119,7 @@
       "level": "Managing Director",
       "qualif": "MSc.",
       "salary": "500000",
-      "paid": "No",
-      "id": 8
+      "paid": "Yes"
     },
     {
       "id": 9,
@@ -127,14 +127,15 @@
       "othername": "White",
       "email": "tasdhs@gmail.com",
       "account": "59403404",
-      "accttype": "Current",
       "bank": "Access Bank",
+      "accttype": "Current",
       "level": "General Manager",
       "qualif": "MSc.",
       "salary": "300000",
-      "paid": "No"
+      "paid": "Yes"
     },
     {
+      "id": 10,
       "surname": "Grace",
       "othername": "Frank",
       "email": "frankgracey@gmail.com",
@@ -144,10 +145,10 @@
       "level": "Managing Director",
       "qualif": "MSc.",
       "salary": "500000",
-      "paid": "No",
-      "id": 10
+      "paid": "Yes"
     },
     {
+      "id": 11,
       "surname": "Eziokwubundu",
       "othername": "Chibueze",
       "email": "eziokwubunduchibueze@gmail.com",
@@ -157,8 +158,7 @@
       "level": "General Manager",
       "qualif": "MSc.",
       "salary": "300000",
-      "paid": "No",
-      "id": 11
+      "paid": "Yes"
     }
   ],
   "users": [

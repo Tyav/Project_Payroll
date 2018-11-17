@@ -52,6 +52,10 @@ $.get("http://localhost:3000/employees", function(employees) {
     
     //TO PAY STAFF
     $('.paybut').click(function() {
+        var payDate = new Date();
+        var datePaid = payDate.getDate() + "/" + (payDate.getMonth() + 1) + "/" + payDate.getFullYear();
+        alert(datePaid);
+
         var payId = this.id.split('p').join('');
         $.get('http://localhost:3000/employees/' + payId, function(emply) {
             var staffid = emply.id;
@@ -79,7 +83,8 @@ $.get("http://localhost:3000/employees", function(employees) {
                     level: levels,
                     qualif: qual,
                     salary: salarys,
-                    paid: "Yes"     
+                    paid: "Yes",
+                    paymentdate: datePaid    
                 },
                 success: function(response) {
                     window.location.replace("http://localhost:3000/payroll.html");
@@ -298,6 +303,9 @@ $('#searchbutton').click(function() {
         
         //TO PAY STAFF
         $('.paybut').click(function() {
+            var payDate = new Date();
+            var datePaid = payDate.getDate() + payDate.getMonth();
+            alert(datePaid);
             var payId = this.id.split('p').join('');
             $.get('http://localhost:3000/employees/' + payId, function(emply) {
                 var staffid = emply.id;
