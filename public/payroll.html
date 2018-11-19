@@ -17,12 +17,18 @@
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                         </li>
-                        <li class="nav-item">
-                          <a id="payallbut" class="nav-link" href="#">Pay All</a>
+
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Payment Operation
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a id="payallbut" class="dropdown-item" href="#">Pay All</a>
+                            <a id="resetallbut" class="dropdown-item" href="#">Reset All Payments</a>
+                            <div class="dropdown-divider"></div>
+                          </div>
                         </li>
-                        <li class="nav-item">
-                          <a id="resetallbut" class="nav-link" href="#">Reset All Payments</a>
-                        </li>
+
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             More Operations
@@ -30,6 +36,7 @@
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a id="addemply" href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModal">Add Employee</a>
                             <a class="dropdown-item" href="#" id="payallbut" data-toggle="modal" data-target="#exampleModa">Add Admin</a>
+                            <a class="dropdown-item" href="admin.html">More Admin Operations</a>
                             <div class="dropdown-divider"></div>
                             <a href="../index.html" id="logOut" class="dropdown-item" href="#">Log out</a>
                           </div>

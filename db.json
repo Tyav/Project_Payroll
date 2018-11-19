@@ -28,8 +28,8 @@
       "level": "Managing Director",
       "qualif": "BSc.",
       "salary": "500000",
-      "paid": "No",
-      "paymentdate": "17/11/2018"
+      "paid": "Yes",
+      "paymentdate": "19/11/2018"
     },
     {
       "id": 2,
@@ -42,8 +42,8 @@
       "level": "General Manager",
       "qualif": "MSc.",
       "salary": "300000",
-      "paid": "No",
-      "paymentdate": "17/11/2018"
+      "paid": "Yes",
+      "paymentdate": "19/11/2018"
     },
     {
       "id": 3,
@@ -126,8 +126,8 @@
       "level": "Managing Director",
       "qualif": "MSc.",
       "salary": "500000",
-      "paid": "No",
-      "paymentdate": "17/11/2018"
+      "paid": "Yes",
+      "paymentdate": "19/11/2018"
     },
     {
       "id": 9,
