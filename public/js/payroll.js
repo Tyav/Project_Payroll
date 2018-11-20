@@ -17,7 +17,7 @@ $.get("http://localhost:3000/employees", function(employees) {
     let total = 0;
     $.each(employees, function(i, emply) {
         $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
-        emply.id + '<td data-label="NAME">' + 
+        emply.id + '<td class="employee-info" id="' + emply.id + 'em" data-label="NAME" data-toggle="modal" data-target="#exampleModals">' + 
         emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
         emply.email + '<td data-label="ACCOUNT">' +
         emply.account + '<td data-label="LEVEL">' +
@@ -48,6 +48,12 @@ $.get("http://localhost:3000/employees", function(employees) {
         
         });
     });
+
+    //TO VIEW FULL DATA OF EMPLOYEE 
+    $('.employee-info').click(function(){
+        var did = this.id.split('em').join('');
+        alert(did);
+    })
     
     
     //TO PAY STAFF
