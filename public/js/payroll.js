@@ -52,7 +52,6 @@ $.get("http://localhost:3000/employees", function(employees) {
     //TO VIEW FULL DATA OF EMPLOYEE 
     $('.employee-info').click(function(){
         var did = this.id.split('em').join('');
-        alert(did);
         $.get('http://localhost:3000/employees/' + did, function(emply) {
             $('#emply-info').empty()
             $('#emply-info').append('<div class="empinfo">' + 'ID: ' + emply.id + 
@@ -247,7 +246,8 @@ $('#addBut1').click(function() {
                 level: $('#level').val(),
                 qualif: $('#qualification').val(),
                 salary: sal,
-                paid: "No"
+                paid: "No",
+                paymentdate: "Never paid"
             }, 
             function(data, status) {
                 //alert(status)
@@ -270,7 +270,7 @@ $('#searchbutton').click(function() {
             /*if ($('#searchId').val() === 'id'){*/
             if (search === parseInt($('#searchinput').val())){
                 $('#employee').append('<tr class="rows">' + '<td data-label="ID">' +
-                emply.id + '<td data-label="NAME">' + 
+                emply.id + '<td class="employee-info" id="' + emply.id + 'em" data-label="NAME" data-toggle="modal" data-target="#exampleModals">' + 
                 emply.surname + ' ' + emply.othername  + '<td data-label="EMAIL">' +
                 emply.email + '<td data-label="ACCOUNT">' +
                 emply.account + '<td data-label="LEVEL">' +
@@ -335,6 +335,30 @@ $('#searchbutton').click(function() {
             });
         });
         
+        //TO VIEW EMPLOYEE INFO
+        $('.employee-info').click(function(){
+            var did = this.id.split('em').join('');
+            $.get('http://localhost:3000/employees/' + did, function(emply) {
+                $('#emply-info').empty()
+                $('#emply-info').append('<div class="empinfo">' + 'ID: ' + emply.id + 
+                    '<div class="empinfo">' + 'Surname: ' + emply.surname + 
+                    '<div class="empinfo">' + 'Other Name: ' + emply.othername +
+                    '<div class="empinfo">' + 'Email: ' + emply.email +
+                    '<div class="empinfo">' + 'Account Number: ' + emply.account +
+                    '<div class="empinfo">' + 'Bank: ' + emply.bank +
+                    '<div class="empinfo">' + 'Account Type: ' + emply.accttype  +
+                    '<div class="empinfo">' + 'Level: ' + emply.level +
+                    '<div class="empinfo">' + 'Qualification: ' + emply.qualif +
+                    '<div class="empinfo">' + 'Salary: ' + emply.salary +
+                    '<div class="empinfo">' + 'Payment status: ' + emply.paid  +
+                    '<div class="empinfo">' + 'Date of last payment: ' + emply.paymentdate
+                )
+    
+                 
+    
+            });
+        })
+
         
         //TO PAY STAFF
         $('.paybut').click(function() {

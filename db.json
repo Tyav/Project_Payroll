@@ -156,6 +156,20 @@
       "salary": "300000",
       "paid": "No",
       "paymentdate": "17/11/2018"
+    },
+    {
+      "surname": "Osagie",
+      "othername": "Dennis",
+      "email": "denis@gmail.com",
+      "account": "6958443023",
+      "bank": "Wema Bank",
+      "accttype": "Savings",
+      "level": "Managing Director",
+      "qualif": "MSc.",
+      "salary": "500000",
+      "paid": "No",
+      "paymentdate": "Never paid",
+      "id": 12
     }
   ],
   "users": [
