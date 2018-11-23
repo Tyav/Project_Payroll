@@ -53,6 +53,25 @@ $.get("http://localhost:3000/employees", function(employees) {
     $('.employee-info').click(function(){
         var did = this.id.split('em').join('');
         alert(did);
+        $.get('http://localhost:3000/employees/' + did, function(emply) {
+            $('#emply-info').empty()
+            $('#emply-info').append('<div class="empinfo">' + 'ID: ' + emply.id + 
+                '<div class="empinfo">' + 'Surname: ' + emply.surname + 
+                '<div class="empinfo">' + 'Other Name: ' + emply.othername +
+                '<div class="empinfo">' + 'Email: ' + emply.email +
+                '<div class="empinfo">' + 'Account Number: ' + emply.account +
+                '<div class="empinfo">' + 'Bank: ' + emply.bank +
+                '<div class="empinfo">' + 'Account Type: ' + emply.accttype  +
+                '<div class="empinfo">' + 'Level: ' + emply.level +
+                '<div class="empinfo">' + 'Qualification: ' + emply.qualif +
+                '<div class="empinfo">' + 'Salary: ' + emply.salary +
+                '<div class="empinfo">' + 'Payment status: ' + emply.paid  +
+                '<div class="empinfo">' + 'Date of last payment: ' + emply.paymentdate
+            )
+
+             
+
+        });
     })
     
     
@@ -374,6 +393,7 @@ $('#searchbutton').click(function() {
                 var qual = emply.qualif;
                 var salarys = emply.salary;
                 var bank = emply.bank;
+                var datePaid = emply.paymentdate;
     
                 $.ajax({
                     url: `http://localhost:3000/employees/${payId}`,
@@ -389,7 +409,8 @@ $('#searchbutton').click(function() {
                         level: levels,
                         qualif: qual,
                         salary: salarys,
-                        paid: "No"     
+                        paid: "No", 
+                        paymentdate: datePaid    
                     },
                     success: function(response) {
                         // window.location.replace("http://localhost:3000/payroll.html");
@@ -551,7 +572,8 @@ $('#updateBut').click(function() {
         $.get('http://localhost:3000/employees/' + staffid, function(employees) {
             //alert('start')
             var pay = employees.paid;
-            var sal = employees.salary
+            var sal = employees.salary;
+            var datePaid = emply.paymentdate;
             $.ajax({
                 url: 'http://localhost:3000/employees/' + staffid,
                 method: 'PUT',
@@ -566,8 +588,8 @@ $('#updateBut').click(function() {
                     level: $('#level1').val(),
                     qualif: $('#qualification1').val(),
                     salary: sal,
-                    paid: pay
-
+                    paid: pay,
+                    paymentdate: datePaid
 
                     // emply.id + '<td>' + 
                     // emply.surname + ' ' + emply.othername  + '<td>' +

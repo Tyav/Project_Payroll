@@ -21,15 +21,15 @@
       "id": 1,
       "surname": "Damilola",
       "othername": "Julius",
-      "email": "julie@gmail.com",
-      "account": "0564932033",
+      "email": "juli@gmail.com",
+      "account": "0564932038",
       "bank": "Access Bank",
       "accttype": "Current",
       "level": "Managing Director",
       "qualif": "BSc.",
       "salary": "500000",
       "paid": "Yes",
-      "paymentdate": "19/11/2018"
+      "paymentdate": "23/11/2018"
     },
     {
       "id": 2,
@@ -128,20 +128,6 @@
       "salary": "500000",
       "paid": "Yes",
       "paymentdate": "19/11/2018"
-    },
-    {
-      "id": 9,
-      "surname": "Grey",
-      "othername": "White",
-      "email": "tasdhs@gmail.com",
-      "account": "59403404",
-      "bank": "Access Bank",
-      "accttype": "Current",
-      "level": "General Manager",
-      "qualif": "MSc.",
-      "salary": "300000",
-      "paid": "No",
-      "paymentdate": "17/11/2018"
     },
     {
       "id": 10,
