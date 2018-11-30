@@ -12,10 +12,6 @@ $.get("http://localhost:3000/users", function(users){
         '<td id="' + admin.id + 's" class="admin-info" >' + admin.surname + ' ' + admin.othername +
         '<td>' + admin.username + 
         '<td>' + admin.auth + 
-        '<td>' + admin.password +
-        '<td>' + admin.email +
-        '<td>' + admin.phone +
-        '<td>' + admin.staffid +
         '<td><button class="ed">Edit</button><button >Del</button>'
         )
     });
@@ -39,3 +35,15 @@ $.get("http://localhost:3000/users", function(users){
         // })
     });
 })
+
+// $('#admins').append('<tr>' + 
+//         '<td>' + admin.id + 
+//         '<td id="' + admin.id + 's" class="admin-info" >' + admin.surname + ' ' + admin.othername +
+//         '<td>' + admin.username + 
+//         '<td>' + admin.auth + 
+//         '<td>' + admin.password +
+//         '<td>' + admin.email +
+//         '<td>' + admin.phone +
+//         '<td>' + admin.staffid +
+//         '<td><button class="ed">Edit</button><button >Del</button>'
+//         )
